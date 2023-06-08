@@ -1,0 +1,17 @@
+{%for meal in week_meals%}
+<div class="card" style="width: 300px; margin-bottom: 30px; margin-left: 350px;">
+    <img style="width: 300px; height: 200px;" class="card-img-top" src="{{url_for('static', filename='img/' + meal.image_link)}}" alt="Card image cap">
+    <div class="card-body" style="min-width: 300px;">
+        <h5 class="card-title">{{meal.name}}</h5>
+        <p class="card-text">{{meal.description}}</p>
+        <div class="d-flex justify-content-between">
+            <a href="/meals/{{meal.id}}/view" class="btn btn-info">Go to recipe</a>
+            <div class="form-check form-switch pt-2">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="meal_checkbox" value={{meal.id}}>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Select meal</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endfor%}
